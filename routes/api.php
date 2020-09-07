@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('ambassadors','AmbassadorController');
 Route::apiResource('guarantors', 'GuarantorController');
+Route::apiResource('clients', 'ClientController');
+Route::apiResource('salaries', 'SalaryController');
+Route::apiResource('employees', 'EmployeeController');
 
 Route::group([
     'middleware' => 'api',

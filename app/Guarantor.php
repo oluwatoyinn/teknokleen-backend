@@ -22,4 +22,6 @@ class Guarantor extends Model
     
     public function ambassador(){
         return $this->belongsTo(Ambassador::class);
-    }}
+    }
+
+}
