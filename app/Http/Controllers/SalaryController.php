@@ -55,14 +55,12 @@ class SalaryController extends BaseController
         $salary->contract_value = $request->input('salary');
         $salary->bank_name = $request->input('bankName');
         $salary->account_no = $request->input('accountNumber');
-        $salary->holder_name = $request->input('holderName');
+        $salary->holderName = $request->input('holderName');
         $salary->tax_reduction = $request->input('taxReduction');
 
         $salary->save();
 
         return $this->sendResponse(new SalaryResource($salary));
-
-
     }
 
     /**
@@ -71,7 +69,7 @@ class SalaryController extends BaseController
      * @param  \App\Salary  $salary
      * @return \Illuminate\Http\Response
      */
-    public function show(Salary $salary)
+    public function show($id)
     {
         //
         $salary = Salary::find($id);
@@ -111,7 +109,7 @@ class SalaryController extends BaseController
         $salary->contract_value = $request->salary;
         $salary->bank_name = $request->bankName;
         $salary->account_no = $request->accountNumber;
-        $salary->holder_name = $request->holderName;
+        $salary->holderName = $request->holderName;
         $salary->tax_reduction = $request->taxReduction;
 
         $salary->update();

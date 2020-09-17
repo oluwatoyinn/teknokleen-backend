@@ -21,7 +21,7 @@ class SalaryResource extends JsonResource
             'salary'=>$this->contract_value,
             'bankName'=>$this->bank_name,
             'accountNumber'=>$this->account_no,
-            'holderName'=>$this->holder_name,
+            'holderName'=>$this->holderName,
             'taxReduction'=>$this->tax_reduction,
             ];
     }

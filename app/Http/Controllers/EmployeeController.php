@@ -74,7 +74,7 @@ class EmployeeController extends BaseController
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
         //
         $employee = Employee::find($id);
