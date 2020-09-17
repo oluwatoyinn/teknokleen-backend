@@ -56,7 +56,7 @@ class SalaryController extends BaseController
         $salary->bank_name = $request->input('bankName');
         $salary->account_no = $request->input('accountNumber');
         $salary->holderName = $request->input('holderName');
-        $salary->tax_reduction = $request->input('taxReduction');
+        $salary->taxReduction = $request->input('taxReduction');
 
         $salary->save();
 
@@ -110,7 +110,7 @@ class SalaryController extends BaseController
         $salary->bank_name = $request->bankName;
         $salary->account_no = $request->accountNumber;
         $salary->holderName = $request->holderName;
-        $salary->tax_reduction = $request->taxReduction;
+        $salary->taxReduction = $request->taxReduction;
 
         $salary->update();
 

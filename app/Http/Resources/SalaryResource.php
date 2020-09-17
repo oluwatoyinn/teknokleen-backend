@@ -22,7 +22,7 @@ class SalaryResource extends JsonResource
             'bankName'=>$this->bank_name,
             'accountNumber'=>$this->account_no,
             'holderName'=>$this->holderName,
-            'taxReduction'=>$this->tax_reduction,
+            'taxReduction'=>$this->taxReduction,
             ];
     }
 }
