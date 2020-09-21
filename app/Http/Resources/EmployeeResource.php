@@ -25,6 +25,7 @@ class EmployeeResource extends JsonResource
             'DOB'=>$this->birth_date,       
             'phoneNumber'=>$this->phone_number,
             'employedDate'=>$this->employed_date,
+            'confirmation'=>$this->confirmation
             ];
 
     }

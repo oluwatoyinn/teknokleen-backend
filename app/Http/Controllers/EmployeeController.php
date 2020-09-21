@@ -47,7 +47,8 @@ class EmployeeController extends BaseController
             'gender'=>'required',
             'DOB'=>'required',
             'phoneNumber'=>'required|numeric',
-            'employedDate'=>'required'
+            'employedDate'=>'required',
+            'confirmation'=>'required'
         ];
         $this->validate($request,$rules);
 
@@ -61,6 +62,7 @@ class EmployeeController extends BaseController
         $employee->gender = $request->input('gender');
         $employee->phone_number = $request->input('phoneNumber');
         $employee->employed_date = $request->input('employedDate');
+        $employee->confirmation =$request->input('comfirmation');
 
         $employee->save();
 
@@ -118,6 +120,7 @@ class EmployeeController extends BaseController
         $employee->gender = $request->gender;
         $employee->phone_number = $request->phoneNumber;
         $employee->employed_date = $request->employedDate;
+        $employee->confirmation = $request->confirmation;
 
         $employee->update();
 

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SalaryResource extends JsonResource
+class LoanResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,12 +18,14 @@ class SalaryResource extends JsonResource
         return[
             'id'=>$this->id,
             'name'=>$this->name,
-            'level'=>$this->level,
             'salary'=>$this->salary,
-            'bankName'=>$this->bank_name,
-            'accountNumber'=>$this->account_no,
-            'holderName'=>$this->holderName,
-            'taxReduction'=>$this->taxReduction,
-            ];
+            'amountBorowed'=>$this->amount_borowed,
+            'quarantor'=>$this->quarantor,
+            'paymentMethod'=>$this->payment_method,
+            'deduction'=>$this->deduction,
+            'amountPaid'=>$this->amount_paid,
+            'loanBalance'=>$this->loan_balance
+        ];
+       
     }
 }

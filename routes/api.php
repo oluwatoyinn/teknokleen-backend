@@ -23,6 +23,9 @@ Route::apiResource('guarantors', 'GuarantorController');
 Route::apiResource('clients', 'ClientController');
 Route::apiResource('salaries', 'SalaryController');
 Route::apiResource('employees', 'EmployeeController');
+Route::apiResource('loans', 'LoanController');
+
+
 
 Route::group([
     'middleware' => 'api',

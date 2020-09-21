@@ -41,6 +41,7 @@ class SalaryController extends BaseController
         //
         $rules =[
             'name'=>'required',
+            'level'=>'required',
             'salary'=>'required|numeric',
             'bankName'=>'required',
             'accountNumber'=>'required|numeric',
@@ -51,8 +52,9 @@ class SalaryController extends BaseController
 
         $salary = new Salary;
 
-        $salary->Name = $request->input('name');
-        $salary->contract_value = $request->input('salary');
+        $salary->name = $request->input('name');
+        $salary->level = $request->input('level');
+        $salary->salary = $request->input('salary');
         $salary->bank_name = $request->input('bankName');
         $salary->account_no = $request->input('accountNumber');
         $salary->holderName = $request->input('holderName');
@@ -105,8 +107,9 @@ class SalaryController extends BaseController
         //
         $salary = Salary::findOrFail($id);
 
-        $salary->Name = $request->name;
-        $salary->contract_value = $request->salary;
+        $salary->name = $request->name;
+        $salary->level = $request->level;
+        $salary->salary = $request->salary;
         $salary->bank_name = $request->bankName;
         $salary->account_no = $request->accountNumber;
         $salary->holderName = $request->holderName;

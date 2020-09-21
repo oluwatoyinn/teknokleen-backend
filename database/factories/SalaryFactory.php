@@ -16,12 +16,12 @@ $factory->define(Salary::class, function (Faker $faker) {
         //     $table->float('tax_reduction',9,3);
 
         'name' => $faker->Name,
-        'salary'=>$faker->randomNumber,
+        'level'=>$faker->jobTitle,
+        'salary'=>$faker->randomDigit,
         'bank_name' =>$faker->company,
         'account_no'=>$faker->randomNumber,
-        'holder_name'=>$faker->name,
-        'tax_reduction'=>$faker->randomDigit
-       
+        'holderName'=>$faker->Name,
+        'taxReduction'=>$faker->randomDigit 
 
     ];
 });

@@ -26,6 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->string('phone_number');
             // $table->text('role');
             $table->date('employed_date');
+            $table->enum('confirmation',['confirm','awaiting']);
 
             $table->timestamps();
         });

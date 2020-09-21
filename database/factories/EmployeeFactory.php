@@ -17,6 +17,7 @@ $factory->define(Employee::class, function (Faker $faker) {
         'birth_date'=>$faker->date($format = 'Y-m-d', $max = 'now'),
         'phone_number' =>$faker->phoneNumber,
         // 'location' =>$faker->company
-        'employed_date'=>$faker->date($format = 'Y-m-d', $max = 'now')
+        'employed_date'=>$faker->date($format = 'Y-m-d', $max = 'now'),
+        'confirmation'=>$faker->randomElement($array= array('confirm', 'awaiting'))
     ];
 });

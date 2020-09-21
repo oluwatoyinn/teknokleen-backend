@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ClientSeeder::class,
             SalarySeeder::class,
             EmployeeSeeder::class,
+            LoanSeeder::class,
             GuarantorSeeder::class
             ]);
     }
