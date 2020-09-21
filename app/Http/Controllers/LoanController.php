@@ -40,6 +40,33 @@ class LoanController extends BaseController
     public function store(Request $request)
     {
         //
+        $rules=[
+            'name'=>'required',
+            'salary'=>'required|numeric',
+            'amountBorowed'=>'required|numeric',
+            'quarantor'=>'required',
+            'paymentMethod'=>'required|numeric',
+            'deduction'=>'required|numeric',
+            'amountPaid'=>'required|numeric',
+            'loanBalance'=>'required|numeric',
+        ];
+        $this->validate($request,$rules);
+
+       $loan = new Loan;
+
+       $loan->name=$request->input('name');
+       $loan->salary=$request->input('salary');
+       $loan->amount_borowed=$request->input('amountBorowed');
+       $loan->quarantor=$request->input('quarantor');
+       $loan->payment_method=$request->input('paymentMethod');
+       $loan->deduction=$request->input('deduction');
+       $loan->amount_paid=$request->input('amountPaid');
+       $loan->loan_balance=$request->input('loanBalance');
+
+       $loan->save();
+
+       return $this->sendResponse(new LoanResource($loan));
+
     }
 
     /**
@@ -48,9 +75,18 @@ class LoanController extends BaseController
      * @param  \App\Loan  $loan
      * @return \Illuminate\Http\Response
      */
-    public function show(Loan $loan)
+    public function show($id)
     {
         //
+      
+         $loan = Loan::find($id);
+
+         if(is_null($loan)){ 
+             return response()->json([
+                 'message'=>'Loan Not Found'
+            ],404);
+         }
+         return $this->sendResponse(new LoanResource($loan));
     }
 
     /**
@@ -71,9 +107,25 @@ class LoanController extends BaseController
      * @param  \App\Loan  $loan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Loan $loan)
+    public function update(Request $request,$id)
     {
-        //
+        $loan = Loan::findOrFail($id);
+        $loan->name = $request->name;
+        $loan->salary=$request->salary;
+        $loan->amount_borowed=$request->amountBorowed;
+        $loan->quarantor=$request->iquarantor;
+        $loan->payment_method=$request->paymentMethod;
+        $loan->deduction=$request->deduction;
+        $loan->amount_paid=$request->amountPaid;
+        $loan->loan_balance=$request->loanBalance;
+
+        $loan->update();
+
+        return response()->json([
+            'success'=>true,
+            'message'=>"Successfully Updated",
+            'data'=>$loan
+        ],200);
     }
 
     /**
@@ -82,8 +134,12 @@ class LoanController extends BaseController
      * @param  \App\Loan  $loan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Loan $loan)
+    public function destroy($id)
     {
-        //
+        $loan = Loan::findOrFail($id );
+        if($loan) {
+           $loan->delete();
+           return $this->deleteResponse(new LoanResource($loan));
+        }
     }
 }
